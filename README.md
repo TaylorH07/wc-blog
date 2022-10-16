@@ -1,2 +1,3 @@
 # wc-blog
-Women's Blog
+Blog
+
