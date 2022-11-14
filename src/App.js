@@ -8,6 +8,7 @@ import Register from './register/Register';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 function App() {
+  const user = false;
   return (
     <Router>
       <NavBar />
@@ -15,21 +16,27 @@ function App() {
         <Route exact path="/">
           <Home/>
         </Route>
+
         <Route path="/register">
-          <Register/>
+          {user ? <Home/> : <Register/>}
         </Route>
+
         <Route path="/login">
-          <Login/>
+          {user ? <Home/> : <Login/>}
         </Route>        
+
         <Route path="/writePost">
-          <WritePost/>
-        </Route>        
+          {user ? <WritePost/> : <Register/>}
+        </Route>      
+        
         <Route path="/settings">
-          <Settings/>
+          {user ? <Settings /> : <Register/>}
         </Route>
+
         <Route path="/post/:postId">
           <SinglePage/>
         </Route>   
+
       </Switch>
     </Router>
   );
